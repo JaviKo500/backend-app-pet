@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -43,6 +44,12 @@ public class User implements Serializable{
 	@JoinColumn(name = "id_role")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Role role;
+	
+	// Relation user - fundation (1-1)
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_fundation")
+	private Fundation fundation;
 	
 	@Temporal(TemporalType.DATE)
 	private Date createAt;
@@ -95,26 +102,41 @@ public class User implements Serializable{
 	public String getTelephone() {
 		return telephone;
 	}
+	
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
+	
 	public Boolean isActive() {
 		return active;
 	}
+	
 	public void setActive(Boolean active) {
 		this.active = active;
 	}
+	
 	public Date getCreateAt() {
 		return createAt;
 	}
+	
 	public void setCreateAt(Date createAt) {
 		this.createAt = createAt;
 	}
+	
 	public Role getRole() {
 		return role;
 	}
+	
 	public void setRole(Role role) {
 		this.role = role;
+	}
+	
+	public Fundation getFundation() {
+		return fundation;
+	}
+	
+	public void setFundation(Fundation fundation) {
+		this.fundation = fundation;
 	}
 
 	/**

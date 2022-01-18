@@ -4,9 +4,14 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Telephone implements Serializable{
@@ -16,6 +21,11 @@ public class Telephone implements Serializable{
 	
 	@Column(unique = true)
 	private String number;
+	
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_fundation")
+	private Fundation fundation;
 	
 	public Long getIdTelephone() {
 		return idTelephone;
@@ -31,6 +41,14 @@ public class Telephone implements Serializable{
 
 	public void setNumber(String number) {
 		this.number = number;
+	}
+	
+	public Fundation getFundation() {
+		return fundation;
+	}
+
+	public void setFundation(Fundation fundation) {
+		this.fundation = fundation;
 	}
 
 	/**

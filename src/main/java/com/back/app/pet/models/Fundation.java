@@ -2,15 +2,21 @@ package com.back.app.pet.models;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Fundation implements Serializable{
@@ -31,6 +37,12 @@ public class Fundation implements Serializable{
 	private String direction;
 	
 	private Boolean active;
+	
+	// relation bidirectional 
+	
+	@JsonIgnoreProperties( value = {"fundation", "hibernateLazyInitializer", "handler"}, allowSetters = true)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "fundation", cascade = CascadeType.ALL)
+	private List<Telephone> telephones;
 	
 	@Temporal(TemporalType.DATE)
 	private Date createAt;
@@ -111,6 +123,14 @@ public class Fundation implements Serializable{
 
 	public void setCreateAt(Date createAt) {
 		this.createAt = createAt;
+	}
+	
+	public List<Telephone> getTelephones() {
+		return telephones;
+	}
+
+	public void setTelephones(List<Telephone> telephones) {
+		this.telephones = telephones;
 	}
 
 	/**
