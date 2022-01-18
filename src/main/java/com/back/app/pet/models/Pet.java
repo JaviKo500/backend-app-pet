@@ -35,6 +35,14 @@ public class Pet implements Serializable{
 		this.age = age;
 	}
 	
+	public Long getIdPet() {
+		return idPet;
+	}
+	public void setIdPet(Long idPet) {
+		this.idPet = idPet;
+	}
+
+
 	/**
 	 * 
 	 */
