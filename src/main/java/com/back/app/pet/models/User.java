@@ -45,11 +45,11 @@ public class User implements Serializable{
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Role role;
 	
-	// Relation user - fundation (1-1)
+	// Relation user - foundation (1-1)
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_fundation")
-	private Fundation fundation;
+	@JoinColumn(name = "id_foundation")
+	private Foundation foundation;
 	
 	@Temporal(TemporalType.DATE)
 	private Date createAt;
@@ -131,12 +131,11 @@ public class User implements Serializable{
 		this.role = role;
 	}
 	
-	public Fundation getFundation() {
-		return fundation;
+	public Foundation getFoundation() {
+		return foundation;
 	}
-	
-	public void setFundation(Fundation fundation) {
-		this.fundation = fundation;
+	public void setFoundation(Foundation foundation) {
+		this.foundation = foundation;
 	}
 
 	/**

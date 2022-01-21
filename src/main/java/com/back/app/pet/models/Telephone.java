@@ -24,8 +24,8 @@ public class Telephone implements Serializable{
 	
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_fundation")
-	private Fundation fundation;
+	@JoinColumn(name = "id_foundation")
+	private Foundation foundation;
 	
 	public Long getIdTelephone() {
 		return idTelephone;
@@ -43,12 +43,12 @@ public class Telephone implements Serializable{
 		this.number = number;
 	}
 	
-	public Fundation getFundation() {
-		return fundation;
+	public Foundation getFoundation() {
+		return foundation;
 	}
 
-	public void setFundation(Fundation fundation) {
-		this.fundation = fundation;
+	public void setFoundation(Foundation foundation) {
+		this.foundation = foundation;
 	}
 
 	/**

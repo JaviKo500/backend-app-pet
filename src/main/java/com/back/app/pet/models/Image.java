@@ -9,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -23,11 +22,12 @@ public class Image implements Serializable {
 	private String image;
 	
 	// Relation pet - image (1-1)
-	
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_pet")
 	private Pet pet;
+	
+	// TODO: relation bidirectional with pet
 	
 	public Long getIdImg() {
 		return idImg;
