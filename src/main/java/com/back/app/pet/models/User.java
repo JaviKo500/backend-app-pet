@@ -16,6 +16,9 @@ import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -27,15 +30,19 @@ public class User implements Serializable{
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long idUser;
 	
+	@NotEmpty
 	private String names;
 	
 	@Column(unique = true)
+	@Email
 	private String email;
 	
 	@Column(unique = true)
+	@NotEmpty
 	private String userName;
 	
 	private String password;
+	
 	private String telephone;
 	private Boolean active;
 	
