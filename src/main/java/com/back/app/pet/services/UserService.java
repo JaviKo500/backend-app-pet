@@ -9,21 +9,15 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.back.app.pet.models.User;
 import com.back.app.pet.repository.IUser;
-import com.back.app.pet.utils.ResponseRequest;
-import com.back.app.pet.validations.ReviewFields;
 
 @Service
 public class UserService {
 	
 	@Autowired
 	IUser userRepo;
-	@Autowired
-	ReviewFields reviewFields;
-	@Autowired
-	ResponseRequest responseRequest;
-	
+
 	@Transactional
-	public User Create(User user ) {
+	public User create(User user ) {
 		return userRepo.save(user);
 	}
 	

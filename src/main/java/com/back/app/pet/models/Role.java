@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Role implements Serializable{
@@ -20,6 +21,7 @@ public class Role implements Serializable{
 	private Long idRole;
 	
 	@Column(unique = true)
+	@NotEmpty
 	private String type;
 	
 	private String description;

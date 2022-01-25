@@ -37,7 +37,6 @@ public class UserController {
 	public ResponseEntity<?> list() {
 		List<User> users= userService.findAll();
 		if(users.isEmpty()) {
-			System.out.println("asa");
 			return responseRequest.success(false, "Empty List", users, HttpStatus.OK);
 		}
 		return responseRequest.success(true, "Users list", users, HttpStatus.OK);
@@ -63,7 +62,7 @@ public class UserController {
 			return responseRequest.error(false, "Invalid fields", reviewFields.reviewFields(result), HttpStatus.BAD_REQUEST);
 		}
 		try {
-			User newUser = userService.Create(user);
+			User newUser = userService.create(user);
 			newUser.setPassword("");
 			return responseRequest.success(true, "Created user", newUser, HttpStatus.CREATED);
 		} catch (Exception e) {
@@ -79,7 +78,7 @@ public class UserController {
 		try {
 			User currentUser = userService.findById(Long.parseLong(id));
 			currentUser = userService.changeData(currentUser, user);
-			userService.Create(currentUser);
+			userService.create(currentUser);
 			currentUser.setPassword("");
 			return responseRequest.success(true, "Updated user", currentUser, HttpStatus.CREATED);
 		} catch (Exception e) {
