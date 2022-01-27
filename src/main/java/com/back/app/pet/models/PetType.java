@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
 
 
 @Entity
@@ -16,7 +17,8 @@ public class PetType implements Serializable {
 	private Long idType;
 	
 	@Column(unique = true)
-	private String petType;
+	@NotEmpty
+	private String type;
 	private Boolean active;
 	
 
@@ -28,14 +30,14 @@ public class PetType implements Serializable {
 		this.idType = idType;
 	}
 
-	public String getPetType() {
-		return petType;
+	public String getType() {
+		return type;
 	}
 
-	public void setPetType(String petType) {
-		this.petType = petType;
+	public void setType(String type) {
+		this.type = type;
 	}
-	
+
 	public Boolean isActive() {
 		return active;
 	}
