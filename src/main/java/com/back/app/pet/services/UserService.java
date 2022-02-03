@@ -27,6 +27,11 @@ public class UserService {
 	}
 	
 	@Transactional(readOnly = true)
+	public User findByEmail(String email) {
+		return userRepo.findByEmailAndActive(email, true);
+	}
+	
+	@Transactional(readOnly = true)
 	public List<User> findAll() {
 		return userRepo.findAll().stream().map(user -> {
 			user.setPassword("");

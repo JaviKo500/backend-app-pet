@@ -7,5 +7,6 @@ import com.back.app.pet.models.Foundation;
 
 @Repository
 public interface IFoundation extends JpaRepository<Foundation, Long>{
-
+	
+	public Foundation findByEmailAndActive(String email, Boolean active);
 }

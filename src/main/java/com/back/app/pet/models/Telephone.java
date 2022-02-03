@@ -16,13 +16,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
 public class Telephone implements Serializable{
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idTelephone;
 	
 	@Column(unique = true)
 	private String number;
 	
-	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	@JsonIgnoreProperties( value = {"telephones", "hibernateLazyInitializer", "handler"}, allowSetters = true)
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_foundation")
 	private Foundation foundation;

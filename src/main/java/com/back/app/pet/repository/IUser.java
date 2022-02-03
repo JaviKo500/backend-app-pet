@@ -7,5 +7,5 @@ import com.back.app.pet.models.User;
 
 @Repository
 public interface IUser extends JpaRepository<User, Long>{
-
+	public User findByEmailAndActive(String email, Boolean active);
 }

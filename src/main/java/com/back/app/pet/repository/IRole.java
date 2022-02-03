@@ -7,5 +7,5 @@ import com.back.app.pet.models.Role;
 
 @Repository
 public interface IRole extends JpaRepository<Role, Long>{
-
+	public Role findByTypeAndActive(String type, Boolean active);
 }

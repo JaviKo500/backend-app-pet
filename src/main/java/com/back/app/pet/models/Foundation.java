@@ -15,6 +15,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -25,19 +27,31 @@ public class Foundation implements Serializable{
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long idFoundation;
 	
+	@NotEmpty
 	@Column(unique = true)
 	private String ruc;
 	
+	@Email
 	@Column(unique = true)
 	private String email;
 	
+	@NotEmpty
 	private String name;
+	
 	private String logo;
 	private String image;
 	private String direction;
 	
 	private Boolean active;
 	
+	
+	public Foundation() {
+	}
+
+	public Foundation(Long idFoundation) {
+		this.idFoundation = idFoundation;
+	}
+
 	// relation bidirectional 
 	
 	@JsonIgnoreProperties( value = {"foundation", "hibernateLazyInitializer", "handler"}, allowSetters = true)

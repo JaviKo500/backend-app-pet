@@ -1,4 +1,4 @@
-package com.back.app.pet.cotrollers;
+package com.back.app.pet.controllers;
 
 import java.util.List;
 
