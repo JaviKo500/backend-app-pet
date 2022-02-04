@@ -17,7 +17,7 @@ import javax.validation.constraints.NotEmpty;
 public class Role implements Serializable{
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idRole;
 	
 	@Column(unique = true)

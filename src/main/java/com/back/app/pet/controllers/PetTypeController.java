@@ -51,9 +51,7 @@ public class PetTypeController {
 			if(petType == null) {
 				return responseRequest.success(false,"Pet Type not existing", petType, HttpStatus.OK);
 			}
-			
-			return responseRequest.success(true,"Pet Type", petType, HttpStatus.OK);
-			
+			return responseRequest.success(true,"Pet Type", petType, HttpStatus.OK);		
 		} catch (Exception e) {
 			return responseRequest.error(false,"Pet type not found", e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
@@ -70,7 +68,6 @@ public class PetTypeController {
 		} catch (Exception e) {
 			return responseRequest.error(false,"Error creating Pet type", e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		
 	}
 	
 	@PutMapping("/{id}")
@@ -97,6 +94,4 @@ public class PetTypeController {
 			return responseRequest.error(false,"Error deleting Pet type", e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	
-	
 }

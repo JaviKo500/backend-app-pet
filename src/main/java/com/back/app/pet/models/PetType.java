@@ -13,7 +13,7 @@ import javax.validation.constraints.NotEmpty;
 @Entity
 public class PetType implements Serializable {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idType;
 	
 	@Column(unique = true)
